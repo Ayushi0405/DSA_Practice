@@ -24,3 +24,5 @@ int main(){
     int lower=lowerbound(arr,k);
     cout<<lower;
 }
+
+//lb=lower_bound(arr.begin(),arr.end(),k)-arr.begin();
