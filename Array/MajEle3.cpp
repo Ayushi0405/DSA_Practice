@@ -4,31 +4,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> majorityElement(vector<int> v) {
-    int n = v.size(); //size of the array
-    vector<int> ls; // list of answers
+//BRUTE
+// vector<int> majorityElement(vector<int> arr){
+//     int n=arr.size();
+//     vector<int> ls;
+//     for(int i=0;i<n;i++){
+//         if(ls.size()==0 || ls[0] != arr[i]){
+//             int cnt=0;
+//             for(int j=0;j<n;j++){
+//                 if(arr[i]==arr[j]){
+//                     cnt++;
+//                 }
+//             }
+//             if(cnt>(n/3)){
+//                 ls.push_back(arr[i]);
+//             }
+//         }
+//         if(ls.size()==2) break;
+        
+//     }
+//     return ls;
+    
+// }
 
-    for (int i = 0; i < n; i++) {
-        //selected element is v[i]:
-        // Checking if v[i] is not already
-        // a part of the answer:
-        if (ls.size() == 0 || ls[0] != v[i]) {
-            int cnt = 0;
-            for (int j = 0; j < n; j++) {
-                // counting the frequency of v[i]
-                if (v[j] == v[i]) {
-                    cnt++;
-                }
-            }
+//BETTER-->Using Hashing
 
-            // check if frquency is greater than n/3:
-            if (cnt > (n / 3))
-                ls.push_back(v[i]);
+vector<int> majorityElement(vector<int> arr){
+    int n=arr.size();
+    vector<int> ls;
+    map<int,int> mpp;
+    int mini=int(n/3)+1;
+    for(int i=0;i<n;i++){
+        mpp[arr[i]]++;
+        if(mpp[arr[i]]==mini){
+            ls.push_back(arr[i]);
         }
+        if(ls.size()==2) break;
 
-        if (ls.size() == 2) break;
     }
-
     return ls;
 }
 
