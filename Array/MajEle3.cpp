@@ -29,22 +29,24 @@ using namespace std;
 
 //BETTER-->Using Hashing
 
-vector<int> majorityElement(vector<int> arr){
-    int n=arr.size();
-    vector<int> ls;
-    map<int,int> mpp;
-    int mini=int(n/3)+1;
-    for(int i=0;i<n;i++){
-        mpp[arr[i]]++;
-        if(mpp[arr[i]]==mini){
-            ls.push_back(arr[i]);
-        }
-        if(ls.size()==2) break;
+// vector<int> majorityElement(vector<int> arr){
+//     int n=arr.size();
+//     vector<int> ls;
+//     map<int,int> mpp;
+//     int mini=int(n/3)+1;
+//     for(int i=0;i<n;i++){
+//         mpp[arr[i]]++;
+//         if(mpp[arr[i]]==mini){
+//             ls.push_back(arr[i]);
+//         }
+//         if(ls.size()==2) break;
 
-    }
-    return ls;
-}
+//     }
+//     return ls;
+// }
 
+//OPTIMAL -> Using Voting Algo;
+vector<int>
 int main()
 {
     vector<int> arr = {11, 33, 33, 11, 33, 11};
